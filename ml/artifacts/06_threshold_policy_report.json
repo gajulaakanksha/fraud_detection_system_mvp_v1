@@ -1,0 +1,142 @@
+{
+  "logistic_regression": {
+    "step_up_auth": {
+      "threshold": 0.559706358019013,
+      "tpr": 0.7957343887423043,
+      "fpr": 0.1487226026455463,
+      "value_caught": 1466045.25,
+      "fp_count": 21632,
+      "net_value": 1422781.25,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": "cost-optimal step_up threshold implied 789/day flagged total, exceeding alert-volume cap (469/day); raised threshold 0.4359 -> 0.5597"
+    },
+    "manual_review": {
+      "threshold": 0.7245688120798444,
+      "tpr": 0.6380826737027264,
+      "fpr": 0.01931908808404147,
+      "value_caught": 1399118.95,
+      "fp_count": 2810,
+      "net_value": 1356968.95,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": null
+    },
+    "decline": {
+      "threshold": 0.8833896840893737,
+      "tpr": 0.5703605980650835,
+      "fpr": 0.009033908093391635,
+      "value_caught": 1333364.78,
+      "fp_count": 1314,
+      "net_value": 1267664.78,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false
+    },
+    "daily_volume_estimate": 4687.5
+  },
+  "random_forest": {
+    "step_up_auth": {
+      "threshold": 0.47938236900809966,
+      "tpr": 0.7541776605101144,
+      "fpr": 0.08802216538789429,
+      "value_caught": 1452934.2899999998,
+      "fp_count": 12803,
+      "net_value": 1427328.2899999998,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": "cost-optimal step_up threshold implied 507/day flagged total, exceeding alert-volume cap (469/day); raised threshold 0.4705 -> 0.4794"
+    },
+    "manual_review": {
+      "threshold": 0.665017840104096,
+      "tpr": 0.6334652594547053,
+      "fpr": 0.0070607485630998544,
+      "value_caught": 1399948.98,
+      "fp_count": 1027,
+      "net_value": 1384543.98,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": null
+    },
+    "decline": {
+      "threshold": 0.7412989226671346,
+      "tpr": 0.6130167106420404,
+      "fpr": 0.0035681874432802576,
+      "value_caught": 1385503.48,
+      "fp_count": 519,
+      "net_value": 1359553.48,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false
+    },
+    "daily_volume_estimate": 4687.5
+  },
+  "xgboost": {
+    "step_up_auth": {
+      "threshold": 0.4822155237197876,
+      "tpr": 0.7592348284960422,
+      "fpr": 0.09199598492973628,
+      "value_caught": 1453115.71,
+      "fp_count": 13381,
+      "net_value": 1426353.71,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": "cost-optimal step_up threshold implied 526/day flagged total, exceeding alert-volume cap (469/day); raised threshold 0.4561 -> 0.4822"
+    },
+    "manual_review": {
+      "threshold": 0.8056375506167818,
+      "tpr": 0.635004397537379,
+      "fpr": 0.004950086626515964,
+      "value_caught": 1398549.94,
+      "fp_count": 720,
+      "net_value": 1387749.94,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": null
+    },
+    "decline": {
+      "threshold": 0.8575171750628537,
+      "tpr": 0.6244503078276166,
+      "fpr": 0.003210681186920771,
+      "value_caught": 1390444.9900000002,
+      "fp_count": 467,
+      "net_value": 1367094.9900000002,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false
+    },
+    "daily_volume_estimate": 4687.5
+  },
+  "lightgbm": {
+    "step_up_auth": {
+      "threshold": 0.498555159342788,
+      "tpr": 0.797273526824978,
+      "fpr": 0.14040370706487362,
+      "value_caught": 1466911.76,
+      "fp_count": 20422,
+      "net_value": 1426067.76,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": "cost-optimal step_up threshold implied 752/day flagged total, exceeding alert-volume cap (469/day); raised threshold 0.3049 -> 0.4986"
+    },
+    "manual_review": {
+      "threshold": 0.7159316424019315,
+      "tpr": 0.6512752858399297,
+      "fpr": 0.010635811126694717,
+      "value_caught": 1409688.3900000001,
+      "fp_count": 1547,
+      "net_value": 1386483.3900000001,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": null
+    },
+    "decline": {
+      "threshold": 0.8454506842111937,
+      "tpr": 0.6244503078276166,
+      "fpr": 0.003210681186920771,
+      "value_caught": 1389202.88,
+      "fp_count": 467,
+      "net_value": 1365852.88,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false
+    },
+    "daily_volume_estimate": 4687.5
+  }
+}

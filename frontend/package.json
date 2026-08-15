@@ -1,0 +1,33 @@
+{
+  "name": "vaaligard-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack build --mode production",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "axios": "^1.19.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2",
+    "recharts": "^3.10.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.4",
+    "dotenv": "^17.4.2",
+    "html-webpack-plugin": "^5.6.8",
+    "oxlint": "^1.75.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.109.2",
+    "webpack-cli": "^7.2.2",
+    "webpack-dev-server": "^5.2.6"
+  }
+}

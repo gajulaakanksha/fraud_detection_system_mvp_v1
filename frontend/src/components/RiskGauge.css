@@ -1,0 +1,31 @@
+.risk-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.risk-gauge-arc {
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s ease;
+}
+
+.risk-gauge-value {
+  margin-top: -34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.risk-gauge-value > span:first-child {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.risk-gauge-level {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}

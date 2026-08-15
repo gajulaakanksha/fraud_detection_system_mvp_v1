@@ -1,0 +1,67 @@
+{
+  "missing_values": {},
+  "duplicate_transaction_ids": 0,
+  "fraud_rate_overall": 0.030712,
+  "fraud_type_counts": {
+    "label_noise": 5856,
+    "card_not_present": 3982,
+    "account_takeover": 3979,
+    "velocity_attack": 3485,
+    "new_beneficiary_scam": 3479,
+    "cross_border_anomaly": 3476,
+    "friendly_fraud": 3228,
+    "low_and_slow_takeover": 3227
+  },
+  "amount_stats_by_label": {
+    "count": {
+      "0": 969288.0,
+      "1": 30712.0
+    },
+    "mean": {
+      "0": 82.5802564563,
+      "1": 348.482580099
+    },
+    "std": {
+      "0": 104.4770572139,
+      "1": 617.1848227189
+    },
+    "min": {
+      "0": 1.0,
+      "1": 2.77
+    },
+    "25%": {
+      "0": 30.78,
+      "1": 64.28
+    },
+    "50%": {
+      "0": 55.16,
+      "1": 155.55
+    },
+    "75%": {
+      "0": 99.06,
+      "1": 384.3525
+    },
+    "max": {
+      "0": 22937.56,
+      "1": 21113.0
+    }
+  },
+  "date_range": {
+    "min": "2026-01-01 00:00:00",
+    "max": "2026-07-29 23:58:00",
+    "span_days": 209
+  },
+  "categorical_cardinality": {
+    "channel": 5,
+    "merchant_category": 10,
+    "country": 8,
+    "customer_home_country": 8,
+    "ip_country": 8
+  },
+  "non_positive_amounts": 0,
+  "negative_ages_or_counts": {
+    "device_age_days": 0,
+    "account_age_days": 0,
+    "transactions_last_10_minutes": 0
+  }
+}

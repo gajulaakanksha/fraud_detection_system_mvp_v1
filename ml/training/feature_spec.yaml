@@ -1,0 +1,38 @@
+# Single source of truth for model input features (per blueprint Section 6).
+# Mirrors what the Phase 1 feature_builder.py will assemble at serving time
+# from persisted history (devices/customers/merchants), not raw client input.
+
+target: fraud_label
+
+# Kept alongside predictions for evaluation, never fed to the model
+# (fraud_type would leak the label; amount is needed for value-based metrics).
+eval_only:
+  - fraud_type
+  - amount
+  - transaction_time
+  - transaction_id
+
+numeric_features:
+  - amount                          # also used raw as a feature
+  - amount_to_avg_ratio             # engineered: amount / customer's average_transaction_amount
+  - device_age_days
+  - account_age_days
+  - transactions_last_10_minutes
+  - failed_attempts_last_24_hours
+  - days_since_last_transaction
+  - session_duration_seconds
+  - merchant_risk_score
+  - customer_risk_score
+
+binary_features:
+  - is_new_device
+  - is_new_beneficiary
+  - is_cross_border                 # engineered: ip_country != customer_home_country
+  - is_ip_merchant_country_mismatch # engineered: ip_country != merchant/transaction country
+
+categorical_features:
+  - channel
+  - merchant_category
+  - customer_home_country
+  - transaction_country
+  - ip_country

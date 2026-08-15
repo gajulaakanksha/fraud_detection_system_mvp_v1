@@ -1,0 +1,102 @@
+{
+  "leakage_auc_threshold": 0.97,
+  "results": [
+    {
+      "feature": "amount_to_avg_ratio",
+      "type": "numeric/binary",
+      "univariate_auc": 0.8041493862366325
+    },
+    {
+      "feature": "amount",
+      "type": "numeric/binary",
+      "univariate_auc": 0.750088982001207
+    },
+    {
+      "feature": "is_ip_merchant_country_mismatch",
+      "type": "numeric/binary",
+      "univariate_auc": 0.7308156980159821
+    },
+    {
+      "feature": "is_cross_border",
+      "type": "numeric/binary",
+      "univariate_auc": 0.6339839267307692
+    },
+    {
+      "feature": "is_new_device",
+      "type": "numeric/binary",
+      "univariate_auc": 0.6154354711742944
+    },
+    {
+      "feature": "failed_attempts_last_24_hours",
+      "type": "numeric/binary",
+      "univariate_auc": 0.6098947714051195
+    },
+    {
+      "feature": "device_age_days",
+      "type": "numeric/binary",
+      "univariate_auc": 0.5977425350056053
+    },
+    {
+      "feature": "session_duration_seconds",
+      "type": "numeric/binary",
+      "univariate_auc": 0.5719059041154726
+    },
+    {
+      "feature": "transactions_last_10_minutes",
+      "type": "numeric/binary",
+      "univariate_auc": 0.566715241698539
+    },
+    {
+      "feature": "merchant_risk_score",
+      "type": "numeric/binary",
+      "univariate_auc": 0.5647762848966777
+    },
+    {
+      "feature": "is_new_beneficiary",
+      "type": "numeric/binary",
+      "univariate_auc": 0.5566282660299373
+    },
+    {
+      "feature": "days_since_last_transaction",
+      "type": "numeric/binary",
+      "univariate_auc": 0.5501058549068876
+    },
+    {
+      "feature": "ip_country",
+      "type": "categorical (rate-encoded)",
+      "univariate_auc": 0.5349280014175939
+    },
+    {
+      "feature": "transaction_country",
+      "type": "categorical (rate-encoded)",
+      "univariate_auc": 0.5095026038684178
+    },
+    {
+      "feature": "customer_home_country",
+      "type": "categorical (rate-encoded)",
+      "univariate_auc": 0.5039431502527559
+    },
+    {
+      "feature": "merchant_category",
+      "type": "categorical (rate-encoded)",
+      "univariate_auc": 0.5038077951780802
+    },
+    {
+      "feature": "channel",
+      "type": "categorical (rate-encoded)",
+      "univariate_auc": 0.5023865465790731
+    },
+    {
+      "feature": "customer_risk_score",
+      "type": "numeric/binary",
+      "univariate_auc": 0.5010365357497923
+    },
+    {
+      "feature": "account_age_days",
+      "type": "numeric/binary",
+      "univariate_auc": 0.50072589002776
+    }
+  ],
+  "flagged_features": [],
+  "verdict": "no leakage flagged -- clear to proceed"
+}

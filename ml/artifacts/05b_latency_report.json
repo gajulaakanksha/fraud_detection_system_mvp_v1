@@ -1,0 +1,34 @@
+{
+  "logistic_regression": {
+    "single_row_p50_ms": 0.10459998156875372,
+    "single_row_p95_ms": 0.23788500693626685,
+    "single_row_p99_ms": 0.4278969980077817,
+    "batch_n": 1000,
+    "batch_elapsed_s": 0.022738999978173524,
+    "batch_throughput_rows_per_sec": 43977.30775143453
+  },
+  "random_forest": {
+    "single_row_p50_ms": 66.8718499946408,
+    "single_row_p95_ms": 86.05836998031009,
+    "single_row_p99_ms": 94.712481018505,
+    "batch_n": 1000,
+    "batch_elapsed_s": 0.12184010003693402,
+    "batch_throughput_rows_per_sec": 8207.478487762772
+  },
+  "xgboost": {
+    "single_row_p50_ms": 1.0171000030823052,
+    "single_row_p95_ms": 1.9759100192459293,
+    "single_row_p99_ms": 2.698501000413671,
+    "batch_n": 1000,
+    "batch_elapsed_s": 0.012498299998696893,
+    "batch_throughput_rows_per_sec": 80010.88148822341
+  },
+  "lightgbm": {
+    "single_row_p50_ms": 2.6723000046331435,
+    "single_row_p95_ms": 4.0041450381977475,
+    "single_row_p99_ms": 4.567545971367508,
+    "batch_n": 1000,
+    "batch_elapsed_s": 0.025723300001118332,
+    "batch_throughput_rows_per_sec": 38875.26094849901
+  }
+}

@@ -1,0 +1,34 @@
+# --- Python / backend ---
+backend/.venv/
+backend/__pycache__/
+**/__pycache__/
+*.pyc
+backend/.env
+backend/data/batch/uploads/*
+backend/data/batch/results/*
+!backend/data/batch/uploads/.gitkeep
+!backend/data/batch/results/.gitkeep
+
+# --- Node / frontend ---
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+
+# --- ML training artifacts: keep only what the backend loads + the narrative reports ---
+ml/artifacts/*.pkl
+!ml/artifacts/model_package_xgboost.pkl
+ml/artifacts/*_val_scores.parquet
+ml/artifacts/*_test_scores.parquet
+
+# --- Raw dataset (144MB, over GitHub's 100MB single-file limit) ---
+/valli_securepay_10lakh_transactions.csv
+
+# --- Processed train/val/test splits (regenerable via ml/training/03_prepare_data.py) ---
+ml/data/
+
+# --- Local tool config ---
+.claude/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db

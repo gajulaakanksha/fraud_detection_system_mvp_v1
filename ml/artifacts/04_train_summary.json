@@ -1,0 +1,18 @@
+{
+  "logistic_regression": {
+    "train_time_seconds": 6.2849860191345215,
+    "val_pr_auc": 0.6412372749925223
+  },
+  "random_forest": {
+    "train_time_seconds": 439.11633586883545,
+    "val_pr_auc": 0.6854789091403
+  },
+  "xgboost": {
+    "train_time_seconds": 64.67208075523376,
+    "val_pr_auc": 0.6959307899348123
+  },
+  "lightgbm": {
+    "train_time_seconds": 21.310921907424927,
+    "val_pr_auc": 0.6960016616487201
+  }
+}

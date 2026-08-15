@@ -1,0 +1,170 @@
+{
+  "logistic_regression": {
+    "total_fraud_value": 1541303.74,
+    "total_value_prevented": 1410038.2010000001,
+    "total_friction_cost": 105904.0,
+    "net_value": 1304134.2010000001,
+    "baseline_do_nothing": -1541303.74,
+    "improvement_over_do_nothing": 2845437.941,
+    "bands": {
+      "monitor": {
+        "n_total": 135000,
+        "fraud_value_in_band": 98448.12,
+        "legit_count_in_band": 133760,
+        "prevention_efficacy_assumed": 0.0,
+        "value_prevented": 0.0,
+        "friction_cost": 0.0
+      },
+      "step_up_auth": {
+        "n_total": 9288,
+        "fraud_value_in_band": 43736.670000000006,
+        "legit_count_in_band": 8882,
+        "prevention_efficacy_assumed": 0.4,
+        "value_prevented": 17494.668,
+        "friction_cost": 17764.0
+      },
+      "manual_review": {
+        "n_total": 1804,
+        "fraud_value_in_band": 65754.17000000001,
+        "legit_count_in_band": 1496,
+        "prevention_efficacy_assumed": 0.9,
+        "value_prevented": 59178.75300000001,
+        "friction_cost": 22440.0
+      },
+      "decline": {
+        "n_total": 3908,
+        "fraud_value_in_band": 1333364.78,
+        "legit_count_in_band": 1314,
+        "prevention_efficacy_assumed": 1.0,
+        "value_prevented": 1333364.78,
+        "friction_cost": 65700.0
+      }
+    }
+  },
+  "random_forest": {
+    "total_fraud_value": 1541303.74,
+    "total_value_prevented": 1418169.502,
+    "total_friction_cost": 54748.0,
+    "net_value": 1363421.502,
+    "baseline_do_nothing": -1541303.74,
+    "improvement_over_do_nothing": 2904725.242,
+    "bands": {
+      "monitor": {
+        "n_total": 135000,
+        "fraud_value_in_band": 92192.08,
+        "legit_count_in_band": 133836,
+        "prevention_efficacy_assumed": 0.0,
+        "value_prevented": 0.0,
+        "friction_cost": 0.0
+      },
+      "step_up_auth": {
+        "n_total": 11092,
+        "fraud_value_in_band": 49162.67999999999,
+        "legit_count_in_band": 10589,
+        "prevention_efficacy_assumed": 0.4,
+        "value_prevented": 19665.072,
+        "friction_cost": 21178.0
+      },
+      "manual_review": {
+        "n_total": 601,
+        "fraud_value_in_band": 14445.500000000002,
+        "legit_count_in_band": 508,
+        "prevention_efficacy_assumed": 0.9,
+        "value_prevented": 13000.950000000003,
+        "friction_cost": 7620.0
+      },
+      "decline": {
+        "n_total": 3307,
+        "fraud_value_in_band": 1385503.48,
+        "legit_count_in_band": 519,
+        "prevention_efficacy_assumed": 1.0,
+        "value_prevented": 1385503.48,
+        "friction_cost": 25950.0
+      }
+    }
+  },
+  "xgboost": {
+    "total_fraud_value": 1541303.74,
+    "total_value_prevented": 1417259.5410000002,
+    "total_friction_cost": 48939.0,
+    "net_value": 1368320.5410000002,
+    "baseline_do_nothing": -1541303.74,
+    "improvement_over_do_nothing": 2909624.2810000004,
+    "bands": {
+      "monitor": {
+        "n_total": 135000,
+        "fraud_value_in_band": 93953.56,
+        "legit_count_in_band": 133835,
+        "prevention_efficacy_assumed": 0.0,
+        "value_prevented": 0.0,
+        "friction_cost": 0.0
+      },
+      "step_up_auth": {
+        "n_total": 11392,
+        "fraud_value_in_band": 48800.240000000005,
+        "legit_count_in_band": 10897,
+        "prevention_efficacy_assumed": 0.4,
+        "value_prevented": 19520.096,
+        "friction_cost": 21794.0
+      },
+      "manual_review": {
+        "n_total": 301,
+        "fraud_value_in_band": 8104.950000000001,
+        "legit_count_in_band": 253,
+        "prevention_efficacy_assumed": 0.9,
+        "value_prevented": 7294.455000000001,
+        "friction_cost": 3795.0
+      },
+      "decline": {
+        "n_total": 3307,
+        "fraud_value_in_band": 1390444.9900000002,
+        "legit_count_in_band": 467,
+        "prevention_efficacy_assumed": 1.0,
+        "value_prevented": 1390444.9900000002,
+        "friction_cost": 23350.0
+      }
+    }
+  },
+  "lightgbm": {
+    "total_fraud_value": 1541303.74,
+    "total_value_prevented": 1422741.163,
+    "total_friction_cost": 59682.0,
+    "net_value": 1363059.163,
+    "baseline_do_nothing": -1541303.74,
+    "improvement_over_do_nothing": 2904362.903,
+    "bands": {
+      "monitor": {
+        "n_total": 135000,
+        "fraud_value_in_band": 93862.04000000001,
+        "legit_count_in_band": 133839,
+        "prevention_efficacy_assumed": 0.0,
+        "value_prevented": 0.0,
+        "friction_cost": 0.0
+      },
+      "step_up_auth": {
+        "n_total": 10491,
+        "fraud_value_in_band": 37753.31,
+        "legit_count_in_band": 10066,
+        "prevention_efficacy_assumed": 0.4,
+        "value_prevented": 15101.324,
+        "friction_cost": 20132.0
+      },
+      "manual_review": {
+        "n_total": 1202,
+        "fraud_value_in_band": 20485.510000000002,
+        "legit_count_in_band": 1080,
+        "prevention_efficacy_assumed": 0.9,
+        "value_prevented": 18436.959000000003,
+        "friction_cost": 16200.0
+      },
+      "decline": {
+        "n_total": 3307,
+        "fraud_value_in_band": 1389202.88,
+        "legit_count_in_band": 467,
+        "prevention_efficacy_assumed": 1.0,
+        "value_prevented": 1389202.88,
+        "friction_cost": 23350.0
+      }
+    }
+  }
+}

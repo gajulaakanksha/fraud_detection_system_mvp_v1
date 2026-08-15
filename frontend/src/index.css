@@ -1,0 +1,325 @@
+:root {
+  color-scheme: dark;
+
+  /* brand -- fixed, matches the login screen's navy + orange identity;
+     never themed, same as the status colors below */
+  --brand: #f97316;
+  --brand-light: #fb923c;
+  --brand-dark: #ea580c;
+
+  /* surfaces (dark, default) -- navy-tinted to match the login panel */
+  --page: #0a0e17;
+  --surface-1: #131b2c;
+  --surface-2: #1a2436;
+  --surface-3: #212c42;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* ink */
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --gridline: #1f2937;
+  --baseline: #334155;
+
+  /* categorical (dark steps, fixed order) -- charts only, not brand chrome */
+  --series-1: #3987e5; /* blue */
+  --series-2: #d95926; /* orange */
+  --series-3: #199e70; /* aqua */
+  --series-4: #c98500; /* yellow */
+  --series-5: #d55181; /* magenta */
+  --series-6: #008300; /* green */
+  --series-7: #9085e9; /* violet */
+  --series-8: #e66767; /* red */
+
+  /* sequential (blue ramp, same hues both modes) */
+  --seq-100: #cde2fb;
+  --seq-300: #6da7ec;
+  --seq-500: #256abf;
+  --seq-700: #0d366b;
+
+  /* status (fixed hex, never themed) */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+  --status-info: #3987e5;
+
+  /* risk-level 3-tier bucketing (fixed hex, never themed): 0-30 low,
+     31-60 medium, 61-100 high -- used for the risk % gauge/pill only */
+  --risk-low: #0ca30c;
+  --risk-medium: #f97316;
+  --risk-high: #d03b3b;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Light mode: applied when the OS prefers light AND the user hasn't
+   explicitly forced dark via the in-app toggle. */
+@media (prefers-color-scheme: light) {
+  :root:where(:not([data-theme="dark"])) {
+    color-scheme: light;
+    --page: #f9f9f7;
+    --surface-1: #fcfcfb;
+    --surface-2: #f2f1ee;
+    --surface-3: #e9e8e3;
+    --border: rgba(11, 11, 11, 0.1);
+    --border-strong: rgba(11, 11, 11, 0.18);
+
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --gridline: #e1e0d9;
+    --baseline: #c3c2b7;
+
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --series-3: #1baf7a;
+    --series-4: #eda100;
+    --series-5: #e87ba4;
+    --series-6: #008300;
+    --series-7: #4a3aa7;
+    --series-8: #e34948;
+  }
+}
+
+/* Manual override via the theme toggle -- wins over both the media
+   query and the dark default, in either direction. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface-1: #fcfcfb;
+  --surface-2: #f2f1ee;
+  --surface-3: #e9e8e3;
+  --border: rgba(11, 11, 11, 0.1);
+  --border-strong: rgba(11, 11, 11, 0.18);
+
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --gridline: #e1e0d9;
+  --baseline: #c3c2b7;
+
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-8: #e34948;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0a0e17;
+  --surface-1: #131b2c;
+  --surface-2: #1a2436;
+  --surface-3: #212c42;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --gridline: #1f2937;
+  --baseline: #334155;
+
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
+  --series-8: #e66767;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  transition: background-color 0.15s ease;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand) 35%, transparent);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+/* focus ring, kept consistent everywhere */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* themed scrollbars */
+* {
+  scrollbar-color: var(--border-strong) transparent;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 2px solid var(--page);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+  background-clip: padding-box;
+}
+
+/* Buttons -- shared across the app so every CTA feels like one system */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: var(--radius-sm);
+  padding: 9px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease,
+    border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 0 0 0 color-mix(in srgb, var(--brand) 45%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -4px color-mix(in srgb, var(--brand) 55%, transparent);
+}
+
+.btn-primary:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: default;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: var(--surface-1);
+  border-color: var(--border-strong);
+  color: var(--text-secondary);
+}
+
+.btn-secondary:not(:disabled):hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+  background: var(--surface-2);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:not(:disabled):active {
+  transform: translateY(0);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* small inline loading spinner -- pair with a label for "Scoring…" etc. */
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  opacity: 0.85;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* route-level fade/slide-in so navigating between pages feels alive */
+.page-enter {
+  animation: page-enter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "champion_model": "xgboost",
+  "selection_basis": "highest net_value in business value simulation on validation set",
+  "policy": {
+    "step_up_auth": {
+      "threshold": 0.4822155237197876,
+      "tpr": 0.7592348284960422,
+      "fpr": 0.09199598492973628,
+      "value_caught": 1453115.71,
+      "fp_count": 13381,
+      "net_value": 1426353.71,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": "cost-optimal step_up threshold implied 526/day flagged total, exceeding alert-volume cap (469/day); raised threshold 0.4561 -> 0.4822"
+    },
+    "manual_review": {
+      "threshold": 0.8056375506167818,
+      "tpr": 0.635004397537379,
+      "fpr": 0.004950086626515964,
+      "value_caught": 1398549.94,
+      "fp_count": 720,
+      "net_value": 1387749.94,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false,
+      "capacity_note": null
+    },
+    "decline": {
+      "threshold": 0.8575171750628537,
+      "tpr": 0.6244503078276166,
+      "fpr": 0.003210681186920771,
+      "value_caught": 1390444.9900000002,
+      "fp_count": 467,
+      "net_value": 1367094.9900000002,
+      "guardrail_fallback_used": false,
+      "tpr_below_floor": false
+    },
+    "daily_volume_estimate": 4687.5
+  },
+  "business_value_summary": {
+    "total_fraud_value": 1541303.74,
+    "total_value_prevented": 1417259.5410000002,
+    "total_friction_cost": 48939.0,
+    "net_value": 1368320.5410000002,
+    "baseline_do_nothing": -1541303.74,
+    "improvement_over_do_nothing": 2909624.2810000004,
+    "bands": {
+      "monitor": {
+        "n_total": 135000,
+        "fraud_value_in_band": 93953.56,
+        "legit_count_in_band": 133835,
+        "prevention_efficacy_assumed": 0.0,
+        "value_prevented": 0.0,
+        "friction_cost": 0.0
+      },
+      "step_up_auth": {
+        "n_total": 11392,
+        "fraud_value_in_band": 48800.240000000005,
+        "legit_count_in_band": 10897,
+        "prevention_efficacy_assumed": 0.4,
+        "value_prevented": 19520.096,
+        "friction_cost": 21794.0
+      },
+      "manual_review": {
+        "n_total": 301,
+        "fraud_value_in_band": 8104.950000000001,
+        "legit_count_in_band": 253,
+        "prevention_efficacy_assumed": 0.9,
+        "value_prevented": 7294.455000000001,
+        "friction_cost": 3795.0
+      },
+      "decline": {
+        "n_total": 3307,
+        "fraud_value_in_band": 1390444.9900000002,
+        "legit_count_in_band": 467,
+        "prevention_efficacy_assumed": 1.0,
+        "value_prevented": 1390444.9900000002,
+        "friction_cost": 23350.0
+      }
+    }
+  },
+  "runner_up_comparison": {
+    "xgboost": 1368320.5410000002,
+    "random_forest": 1363421.502,
+    "lightgbm": 1363059.163,
+    "logistic_regression": 1304134.2010000001
+  }
+}
