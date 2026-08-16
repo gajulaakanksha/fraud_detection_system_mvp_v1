@@ -13,6 +13,16 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
     jwt_expire_minutes: int = 60
 
+    # Comma-separated -- e.g. the deployed frontend's own origin in production,
+    # localhost:5173 for local dev. A plain string (not list[str]) so it
+    # round-trips through a .env file / docker-compose environment var
+    # without needing JSON-array syntax.
+    cors_allowed_origins: str = "http://localhost:5173"
+
+    @property
+    def cors_allowed_origins_list(self) -> list[str]:
+        return [o.strip() for o in self.cors_allowed_origins.split(",") if o.strip()]
+
 
 @lru_cache
 def get_settings() -> Settings:

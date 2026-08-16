@@ -8,6 +8,7 @@ Usage (from backend/):
     python -m app.scripts.seed_model_and_rules
 """
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -17,6 +18,20 @@ from app.models.model_version import ModelVersion
 from app.models.rule import Rule
 
 ML_ARTIFACTS_DIR = Path(__file__).resolve().parents[3] / "ml" / "artifacts"
+
+# Where model_loader.py should load the packaged model from at runtime.
+# Both unset (the default) -> the local file this script is looking at right now.
+# Both set -> s3://{bucket}/{key}. The bucket rarely changes and is set once
+# per deployment; the key is the explicit-version lever -- MODEL_S3_KEY must
+# name a specific pinned artifact (e.g. "model-artifacts/xgboost_v1.2.0.pkl"),
+# never a mutable "latest.pkl" that gets overwritten in place. That's what
+# keeps "which model made this decision" (model_versions.version_tag ->
+# artifact_uri) an answerable, audit-trail question after the fact.
+MODEL_S3_BUCKET = os.environ.get("MODEL_S3_BUCKET")
+MODEL_S3_KEY = os.environ.get("MODEL_S3_KEY")
+if bool(MODEL_S3_BUCKET) != bool(MODEL_S3_KEY):
+    raise SystemExit("Set both MODEL_S3_BUCKET and MODEL_S3_KEY, or neither -- not just one.")
+MODEL_ARTIFACT_URI_OVERRIDE = f"s3://{MODEL_S3_BUCKET}/{MODEL_S3_KEY}" if MODEL_S3_BUCKET else None
 
 # Rule set from the blueprint's Phase 1 plan (Section 3.5 / Phase 1 bullet).
 # None are marked "critical" by default -- this dataset has no sanctioned-
@@ -89,8 +104,15 @@ def main() -> None:
                 row.is_active = True
         db.query(ModelVersion).filter(ModelVersion.is_active.is_(True)).update({"is_active": False})
 
-        version_tag = f"{model_name}-v1.0-2026-08"
-        artifact_uri = str((ML_ARTIFACTS_DIR / f"model_package_{model_name}.pkl").resolve())
+        # Derived from the pinned S3 key when one's given, so two different
+        # artifacts (e.g. a rollback to an older xgboost_v1.1.0.pkl) never
+        # collide under the same version_tag and silently keep the old
+        # artifact_uri on re-seed -- see the upsert-by-version_tag logic
+        # below, and the module docstring on MODEL_S3_KEY.
+        version_tag = f"{model_name}-{Path(MODEL_S3_KEY).stem}" if MODEL_S3_KEY else f"{model_name}-v1.0-2026-08"
+        artifact_uri = MODEL_ARTIFACT_URI_OVERRIDE or str(
+            (ML_ARTIFACTS_DIR / f"model_package_{model_name}.pkl").resolve()
+        )
         existing = db.query(ModelVersion).filter(ModelVersion.version_tag == version_tag).one_or_none()
         if existing is None:
             mv = ModelVersion(

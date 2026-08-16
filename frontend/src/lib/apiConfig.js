@@ -1,7 +1,9 @@
 // process.env.API_BASE_URL is substituted at build time by webpack.DefinePlugin
 // (see webpack.config.mjs), sourced from the .env file. Copy .env.example to
-// .env and edit it to point at your backend.
-export const API_ROOT = process.env.API_BASE_URL || "http://localhost:8000";
+// .env and edit it to point at your backend -- leave it empty for a
+// same-origin deployment (nginx proxies /v1/* on the page's own origin).
+// ?? not || -- an explicitly empty string must stay empty, not fall through.
+export const API_ROOT = process.env.API_BASE_URL ?? "http://localhost:8000";
 export const API_BASE_URL = `${API_ROOT}/v1`;
 
 export const ENDPOINTS = {

@@ -14,5 +14,24 @@ redis==5.0.8
 pandas==2.2.2
 python-dotenv==1.0.1
 shap==0.46.0
+# Pinned explicitly, not left to shap's own dependency resolution -- the
+# packaged model's preprocessor (a sklearn ColumnTransformer, see
+# ml/training/09_package_model.py) was pickled under this exact version.
+# scikit-learn doesn't guarantee pickle compatibility across versions (an
+# unpinned install resolved to 1.9.0 here and broke unpickling with
+# `AttributeError: Can't get attribute '_RemainderColsList'` -- an internal
+# class that didn't exist yet, or changed shape, between 1.5 and 1.9).
+scikit-learn==1.5.2
 joblib==1.4.2
 rq==2.0.0
+boto3==1.35.36
+
+# xgboost is intentionally NOT listed here -- install it separately with
+# --no-deps (see Dockerfile). Its Linux wheel unconditionally declares a
+# ~340MB nvidia-nccl-cu12 dependency (multi-GPU distributed-training support
+# neither this backend nor a single CPU EC2 instance needs) that a plain
+# `pip install xgboost` on Linux pulls in every time; Windows wheels don't
+# have this dependency at all, which is why it's easy to miss locally.
+# `pip install xgboost==2.1.1 --no-deps` + this file's numpy-requiring
+# packages (pandas, shap) already satisfy xgboost's real runtime deps
+# (numpy, scipy) without it.

@@ -1,0 +1,23 @@
+# Applies to the backend/worker build context (repo root -- see
+# infra/docker-compose.prod.yml). The frontend has its own separate
+# frontend/.dockerignore for its own separate build context.
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/.env
+backend/data/batch/uploads/*
+backend/data/batch/results/*
+
+frontend/node_modules/
+frontend/dist/
+
+ml/data/
+ml/artifacts/*.pkl
+!ml/artifacts/model_package_xgboost.pkl
+ml/artifacts/*_val_scores.parquet
+ml/artifacts/*_test_scores.parquet
+
+/valli_securepay_10lakh_transactions.csv
+.git/
+.claude/

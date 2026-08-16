@@ -46,8 +46,11 @@ export default (env, argv) => {
         favicon: "./public/favicon.svg",
       }),
       new webpack.DefinePlugin({
+        // ?? not || -- an explicitly empty API_BASE_URL (same-origin
+        // deployment, see frontend/nginx.conf) must stay empty, not
+        // collapse to the localhost default just because "" is falsy.
         "process.env.API_BASE_URL": JSON.stringify(
-          process.env.API_BASE_URL || "http://localhost:8000"
+          process.env.API_BASE_URL ?? "http://localhost:8000"
         ),
       }),
     ],
