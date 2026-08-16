@@ -43,6 +43,13 @@ services:
       MODEL_S3_BUCKET: ${MODEL_S3_BUCKET:-}
       MODEL_S3_KEY: ${MODEL_S3_KEY:-}
       AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-}
+    volumes:
+      # Shared with worker: batch_service.py (backend) writes uploaded CSVs
+      # here, batch_scoring_task.py (worker, a separate container) reads
+      # them back by local path -- without a shared volume, the worker's
+      # /app/data/batch is an empty, unrelated filesystem and every job
+      # fails with FileNotFoundError the moment it's picked up.
+      - valli_batch_data:/app/data/batch
     depends_on:
       postgres:
         condition: service_healthy
@@ -68,6 +75,8 @@ services:
       MODEL_S3_BUCKET: ${MODEL_S3_BUCKET:-}
       MODEL_S3_KEY: ${MODEL_S3_KEY:-}
       AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-}
+    volumes:
+      - valli_batch_data:/app/data/batch
     depends_on:
       postgres:
         condition: service_healthy
@@ -89,3 +98,4 @@ services:
 
 volumes:
   valli_pg_data:
+  valli_batch_data:
